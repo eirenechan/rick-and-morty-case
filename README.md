@@ -24,6 +24,7 @@ Want to impress us a bit more? Here are some tips to do so
 - Dockerize it
 - Use awesome techniques
 - Make it (the code) look pretty
+- Integrate 1 or more extra API's in a creative way
 - Explain to us in detail how a plumbus is made
 
 ![Show me what you got!](https://media.giphy.com/media/26DOs997h6fgsCthu/giphy.gif)
