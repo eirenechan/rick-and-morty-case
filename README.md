@@ -17,7 +17,7 @@ We want to see the following:
 
 ## How?
 How do we want you to do it? We don't care, make it in React, Vue, Symfony, Zend, Slim, etc... 
-Make it in the framework(s) of your choice. 
+Make it in the framework(s) of your choice. Just make sure you do it in a language that applies to the position you're applying for. (PHP for Backend-dev, Javascript for frontend-dev)
 Just make sure it is something you're proud of and shows us your knowledge and abilities!
 
 ## Bonus points
