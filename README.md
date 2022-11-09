@@ -16,8 +16,15 @@ We want to see the following:
 - Showing all information of a character (Name, species, gender, last location, dimension, etc)
 
 ## How?
-How do we want you to do it? We don't care, make it in React, Vue, Symfony, Zend, Slim, etc... 
-Make it in the framework(s) of your choice. Just make sure you do it in a language that applies to the position you're applying for. (PHP for Backend-dev, Javascript for frontend-dev)
+How do we want you to do it? 
+
+If you are applying as a front-end developer, make use of the following:
+* NextJS
+* styled-components
+* Apollo GraphQL
+
+If you are applying as a back-end developer:
+Make it in the framework(s) of your choice. Just make sure you do it in PHP.
 
 Make sure it is something you're proud of and shows us your knowledge and abilities!
 
