@@ -18,12 +18,13 @@ We want to see the following:
 ## How?
 How do we want you to do it? 
 
-If you are applying as a front-end developer, make use of the following:
+### Front-end developer
+Make use of the following:
 * NextJS
 * styled-components
 * Apollo GraphQL
 
-If you are applying as a back-end developer:
+### Back-end developer
 Make it in the framework(s) of your choice. Just make sure you do it in PHP.
 
 Make sure it is something you're proud of and shows us your knowledge and abilities!
