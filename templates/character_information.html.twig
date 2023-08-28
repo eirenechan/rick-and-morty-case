@@ -6,28 +6,57 @@
 
 {% block body %}
 
-    <h1>{{ title }}</h1>
+    <h1 class="mb-5">{{ title }}</h1>
 
-    <h2>Characters:</h2>
     {% if charactersData is not empty %}
-      <ul>
-          {% for characterData in charactersData|sort((a, b) => [a.status, a.name] <=> [b.status, b.name]) %}
-              <li>
-                {% if characterData.status == 'Alive' %}
-                  <div>
-                    <i data-feather="user-check"></i>
-                  </div>
-                {% else %}
-                  <i data-feather="user-x"></i>
-                {% endif %}
-                ({{ characterData.status }}) <strong>{{ characterData.name }}</strong> - {{ characterData.species }} <br>
-              </li>
-          {% endfor %}
-      </ul>
+      <table class="table w-75 mx-auto">
+        <thead>
+          <tr class="fs-5">
+            <th scope="col" style="width: 50%">
+              <i data-feather="user-check" class="mx-2"></i>
+              Alive Characters
+            </th>
+            <th scope="col" style="width: 50%">
+              <i data-feather="user-x" class="mx-2"></i>
+              Dead Characters
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <ul class="list-group m-4">
+                {% for characterData in charactersData|filter(a => a.status == 'Alive')|sort((a, b) => a.name <=> b.name) %}
+                    <li class="list-group-item">
+                      <img src={{ characterData.image }} width="100" alt="character-image" class="rounded-3 m-2"><br>
+                      <strong><u>{{ characterData.name }}</u></strong><br>
+                      Species: {{ characterData.species }} | Gender: {{ characterData.gender }}<br>
+                      Location: {{ characterData.location.name }} <br>
+                    </li>
+                {% endfor %}
+              </ul>
+            </td>
+            <td>
+              <ul class="list-group m-4">
+                {% for characterData in charactersData|filter(a => a.status == 'Dead')|sort((a, b) => a.name <=> b.name) %}
+                    <li class="list-group-item">
+                      <img src={{ characterData.image }} width="100" alt="character-image" class="rounded-3 m-2"><br>
+                      <strong><u>{{ characterData.name }}</u></strong><br>
+                      Species: {{ characterData.species }} | Gender: {{ characterData.gender }}<br>
+                      Location: {{ characterData.location.name }} <br>
+                    </li>
+                {% endfor %}
+              </ul>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+
     {% else %}
       <p>No characters found for this search.</p>
     {% endif %}
 
-    <a href={{ path('app_characters') }}>Search Again</a>
+    <a href={{ path('app_characters') }} class="btn btn-secondary mt-3">Search Again</a>
 
 {% endblock %}

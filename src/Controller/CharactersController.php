@@ -68,7 +68,7 @@ class CharactersController extends AbstractController
       }
 
       return $this->render('character_information.html.twig', [
-        'title' => 'Location - ' . $content['name'],
+        'title' => $content['name'],
         'charactersData' => $charactersData,
       ]);
     }
@@ -85,7 +85,9 @@ class CharactersController extends AbstractController
 
           foreach ($content['results'] as $location) {
               $dimensionName = $location['dimension'];
-              $DIMENSIONS[$location['id']] = $dimensionName;
+              if ($dimensionName !== "") {
+                $DIMENSIONS[$location['id']] = $dimensionName;
+              }
           }
 
           $nextPageUrl = $content['info']['next'];
@@ -121,7 +123,7 @@ class CharactersController extends AbstractController
       }
 
       return $this->render('character_information.html.twig', [
-        'title' => 'Demension - ' . $selectedDimension,
+        'title' => $selectedDimension,
         'charactersData' => $charactersData,
       ]);
     }

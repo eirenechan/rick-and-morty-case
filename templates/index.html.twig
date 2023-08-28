@@ -5,38 +5,56 @@
 {% endblock %}
 
 {% block body %}
-  <h1>Search for Rick and Morty Characters</h1>
+  <div class="border border-2 p-5" style="border-radius: 30px;">
+
+    <h1 class="center">Search for Characters</h1>
+    <div class="container my-5">
+
     {# Location Search Form #}
-    <form action="{{ path('character_information_by_location') }}" method="GET">
-      <label for="location">By Location:</label>
-      <select id="location" name="location">
-        {% for location in locationList %}
-          <option value="{{ location }}">{{ location }}</option>
-        {% endfor %}
-      </select>
-      <input type="submit" value="Search">
-    </form><br>
+      <form action="{{ path('character_information_by_location') }}" method="GET">
+        <div class="input-group w-75 mx-auto">
+          <label for="location" class="input-group-text">
+            By Location
+          </label>
+          <select id="location" name="location" class="form-select">
+            {% for location in locationList|sort((a, b) => a <=> b) %}
+              <option value="{{ location }}">{{ location }}</option>
+            {% endfor %}
+          </select>
+          <input type="submit" value="Search" class="btn btn-secondary">
+        </div>
+      </form><br>
 
     {# Dimension Search Form #}
-    <form action="{{ path('character_information_by_dimension') }}" method="GET">
-      <label for="dimension">By Dimension:</label>
-      <select id="dimension" name="dimension">
-        {% for dimension in dimensionList %}
-          <option value="{{ dimension }}">{{ dimension }}</option>
-        {% endfor %}
-      </select>
-      <input type="submit" value="Search">
-    </form><br>
+      <form action="{{ path('character_information_by_dimension') }}" method="GET">
+        <div class="input-group w-75 mx-auto">
+          <label for="dimension" class="input-group-text">
+            By Dimension
+          </label>
+          <select id="dimension" name="dimension" class="form-select">
+            {% for dimension in dimensionList|sort((a, b) => a <=> b) %}
+              <option value="{{ dimension }}">{{ dimension }}</option>
+            {% endfor %}
+          </select>
+          <input type="submit" value="Search" class="btn btn-secondary">
+        </div>
+      </form><br>
 
     {# Episode Search Form #}
-    <form action="{{ path('character_information_by_episode') }}" method="GET">
-    <label for="episode">By Episode:</label>
-    <select id="episode" name="episode">
-      {% for episode in episodeList %}
-        <option value="{{ episode }}">{{ episode }}</option>
-      {% endfor %}
-    </select>
-    <input type="submit" value="Search">
-  </form>
+      <form action="{{ path('character_information_by_episode') }}" method="GET">
+        <div class="input-group w-75 mx-auto">
+          <label for="episode" class="input-group-text">
+            By Episode
+          </label>
+          <select id="episode" name="episode" class="form-select">
+            {% for episode in episodeList %}
+              <option value="{{ episode }}">{{ episode }}</option>
+            {% endfor %}
+          </select>
+          <input type="submit" value="Search" class="btn btn-secondary">
+        </div>
+      </form>
 
+    </div>
+  </div>
 {% endblock %}
