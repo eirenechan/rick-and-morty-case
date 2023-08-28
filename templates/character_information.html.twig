@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+  Characters
+{% endblock %}
+
+{% block body %}
+
+    <h1>{{ title }}</h1>
+
+    <h2>Characters:</h2>
+    {% if charactersData is not empty %}
+      <ul>
+          {% for characterData in charactersData|sort((a, b) => [a.status, a.name] <=> [b.status, b.name]) %}
+              <li>
+                {% if characterData.status == 'Alive' %}
+                  <div>
+                    <i data-feather="user-check"></i>
+                  </div>
+                {% else %}
+                  <i data-feather="user-x"></i>
+                {% endif %}
+                ({{ characterData.status }}) <strong>{{ characterData.name }}</strong> - {{ characterData.species }} <br>
+              </li>
+          {% endfor %}
+      </ul>
+    {% else %}
+      <p>No characters found for this search.</p>
+    {% endif %}
+
+    <a href={{ path('app_characters') }}>Search Again</a>
+
+{% endblock %}

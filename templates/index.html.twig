@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+  Search Characters
+{% endblock %}
+
+{% block body %}
+  <h1>Search for Rick and Morty Characters</h1>
+    {# Location Search Form #}
+    <form action="{{ path('character_information_by_location') }}" method="GET">
+      <label for="location">By Location:</label>
+      <select id="location" name="location">
+        {% for location in locationList %}
+          <option value="{{ location }}">{{ location }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Search">
+    </form><br>
+
+    {# Dimension Search Form #}
+    <form action="{{ path('character_information_by_dimension') }}" method="GET">
+      <label for="dimension">By Dimension:</label>
+      <select id="dimension" name="dimension">
+        {% for dimension in dimensionList %}
+          <option value="{{ dimension }}">{{ dimension }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Search">
+    </form><br>
+
+    {# Episode Search Form #}
+    <form action="{{ path('character_information_by_episode') }}" method="GET">
+    <label for="episode">By Episode:</label>
+    <select id="episode" name="episode">
+      {% for episode in episodeList %}
+        <option value="{{ episode }}">{{ episode }}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Search">
+  </form>
+
+{% endblock %}
